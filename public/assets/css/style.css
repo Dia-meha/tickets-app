@@ -1,0 +1,54 @@
+/* Personnalisation Bootstrap : couleurs, espacements, présentation */
+:root {
+    --brand: #1f4e79;
+    --brand-dark: #163a5a;
+    --bs-primary: #1f4e79;
+    --bs-primary-rgb: 31, 78, 121;
+    --bs-link-color: #1f4e79;
+    --bs-link-hover-color: #163a5a;
+}
+
+/* L'attribut hidden doit toujours gagner, même sur les classes Bootstrap à !important (d-flex...) */
+[hidden] { display: none !important; }
+
+body { background: #f4f6f9; }
+.bg-brand { background-color: var(--brand); }
+
+.btn-primary {
+    --bs-btn-bg: var(--brand);
+    --bs-btn-border-color: var(--brand);
+    --bs-btn-hover-bg: var(--brand-dark);
+    --bs-btn-hover-border-color: var(--brand-dark);
+    --bs-btn-active-bg: var(--brand-dark);
+    --bs-btn-active-border-color: var(--brand-dark);
+}
+.btn-outline-primary {
+    --bs-btn-color: var(--brand);
+    --bs-btn-border-color: var(--brand);
+    --bs-btn-hover-bg: var(--brand);
+    --bs-btn-hover-border-color: var(--brand);
+}
+
+.card { border-radius: .75rem; border-color: #e1e6ed; }
+.stat-card { border-width: 0 0 0 .35rem; box-shadow: 0 1px 3px rgba(0, 0, 0, .06); }
+
+/* Texte saisi par l'utilisateur : conserve les retours à la ligne, coupe les mots trop longs */
+.ticket-description { white-space: pre-wrap; overflow-wrap: anywhere; }
+.reply { border-left: .3rem solid var(--brand); }
+
+/* Titre des tickets : pas de débordement horizontal de la page */
+.ticket-title { overflow-wrap: anywhere; min-width: 12rem; }
+
+/* Accessibilité : lien d'évitement et focus bien visible */
+.skip-link { position: absolute; z-index: 2000; left: .5rem; top: .5rem; background: #fff; padding: .5rem 1rem; border-radius: .25rem; }
+:focus-visible { outline: 3px solid #ffbf47; outline-offset: 2px; }
+
+/* Compteur de caractères */
+.char-counter.over { color: var(--bs-danger); font-weight: 600; }
+
+main { min-height: 70vh; }
+
+@media (max-width: 575.98px) {
+    main.container { padding-top: 1rem !important; }
+    .display-6 { font-size: 2rem; }
+}

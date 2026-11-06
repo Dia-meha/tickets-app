@@ -1,0 +1,9 @@
+.env
+vendor/
+node_modules/
+*.log
+.DS_Store
+.idea/
+.vscode/
+# Dossier personnel à ne pas rendre 
+/rapport et tuto A NE PAS RENDRE/

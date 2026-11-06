@@ -1,0 +1,24 @@
+name: CI
+
+on: [push]
+
+jobs:
+  verifications:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer PHP 8.3
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Vérifier la syntaxe des fichiers PHP
+        run: |
+          find . -name '*.php' -not -path './vendor/*' -print0 | xargs -0 -n1 php -l
+
+      - name: Vérifier le fichier Compose (variables de test)
+        run: docker compose --env-file .env.example config --quiet
+
+      - name: Construire l'image Docker
+        run: docker build -t tickets-app:ci .
